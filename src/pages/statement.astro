@@ -63,27 +63,27 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </Layout>
 <script>
-  const fn = (e) => {
-    const url = new URLSearchParams();
-    // url.append("year", year);
-    // url.append("month", month);
-    // url.append("city", city);
-    // url.append("address", address);
-    // url.append("postalCode", postalCode);
-    // url.append("activity", activity);
-    // url.append("dayOffs", dayOffs);
-    window.open(`./doc?${url.toString()}`);
-  };
+  // const fn = (e) => {
+  //   const url = new URLSearchParams();
+  //   // url.append("year", year);
+  //   // url.append("month", month);
+  //   // url.append("city", city);
+  //   // url.append("address", address);
+  //   // url.append("postalCode", postalCode);
+  //   // url.append("activity", activity);
+  //   // url.append("dayOffs", dayOffs);
+  //   window.open(`./doc?${url.toString()}`);
+  // };
   const btn = document.getElementById("btn");
 
   btn?.addEventListener("click", function (e) {
-    const year = document.getElementById("year")?.value;
-    const month = document.getElementById("month")?.value;
-    const city = document.getElementById("city")?.value;
-    const address = document.getElementById("address")?.value;
-    const postalCode = document.getElementById("postalCode")?.value;
-    const activity = document.getElementById("activity")?.value;
-    const dayOffs = document.getElementById("dayOffs")?.value;
+    const year = (document.getElementById("year") as HTMLSelectElement)?.value;
+    const month = (document.getElementById("month")as HTMLSelectElement)?.value;
+    const city = (document.getElementById("city")as HTMLInputElement)?.value;
+    const address = (document.getElementById("address")as HTMLInputElement)?.value;
+    const postalCode = (document.getElementById("postalCode")as HTMLInputElement)?.value;
+    const activity = (document.getElementById("activity")as HTMLInputElement)?.value;
+    const dayOffs = (document.getElementById("dayOffs")as HTMLInputElement)?.value;
 
     console.log({ year, month, city, address, postalCode, activity, dayOffs });
   });
