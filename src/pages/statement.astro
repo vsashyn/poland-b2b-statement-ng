@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="main">
+    <h1>Poland B2B statement generator</h1>
+    <div class="form_container">
+      <p>
+        <label for="year">Year</label>
+        <select id="year">
+          <option value="">Select Year</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </select>
+      </p>
+      <p>
+        <label for="month">Month</label>
+        <select id="month" class="month_select">
+          <option value="">Select Month</option>
+          <option value="0">January</option>
+          <option value="1">February</option>
+          <option value="2">March</option>
+          <option value="3">April</option>
+          <option value="4">May</option>
+          <option value="5">June</option>
+          <option value="6">July</option>
+          <option value="7">August</option>
+          <option value="8">September</option>
+          <option value="9">October</option>
+          <option value="10">November</option>
+          <option value="11">December</option>
+        </select>
+      </p>
+      <p>
+        <label for="city">City</label>
+        <input id="city" type="text" />
+      </p>
+      <p>
+        <label for="address">Address</label>
+        <input id="address" type="text" />
+      </p>
+      <p>
+        <label for="postalCode">Postal code</label>
+        <input id="postalCode" type="text" />
+      </p>
+      <p>
+        <label for="activity">Activity</label>
+        <input id="activity" type="text" />
+      </p>
+      <p>
+        <label for="dayOffs">
+          Day offs(optionally). Should be comma separated days of month
+        </label>
+        <input id="dayOffs" type="text" placeholder="1,5,21" />
+      </p>
+    </div>
+    <button id="btn"> Generate PDF</button>
+    <footer>
+      Please send bugs and feature requests to &nbsp;
+      <a href="mailto:sashyn.v@gmail.com">sashyn.v@gmail.com</a>
+    </footer>
+  </div>
+</Layout>
+<script>
+  const fn = (e) => {
+    const url = new URLSearchParams();
+    // url.append("year", year);
+    // url.append("month", month);
+    // url.append("city", city);
+    // url.append("address", address);
+    // url.append("postalCode", postalCode);
+    // url.append("activity", activity);
+    // url.append("dayOffs", dayOffs);
+    window.open(`./doc?${url.toString()}`);
+  };
+  const btn = document.getElementById("btn");
+
+  btn?.addEventListener("click", function (e) {
+    const year = document.getElementById("year")?.value;
+    const month = document.getElementById("month")?.value;
+    const city = document.getElementById("city")?.value;
+    const address = document.getElementById("address")?.value;
+    const postalCode = document.getElementById("postalCode")?.value;
+    const activity = document.getElementById("activity")?.value;
+    const dayOffs = document.getElementById("dayOffs")?.value;
+
+    console.log({ year, month, city, address, postalCode, activity, dayOffs });
+  });
+</script>
+<style>
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  select, input {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 4px;
+    border: 2px solid lightblue;
+  }
+  label {
+    display: block;
+    padding-bottom: 2px;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    padding: 4px;
+  }
+  .main {
+    height: 100vh;
+  }
+</style>
