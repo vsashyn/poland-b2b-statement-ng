@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Document">
+  <div class="flex flex-col my-16 items-center">
+    <p class="m-0 font-bold"> Form of Report on Services Provided</p>
+    <p class="m-0"> Wzór sprawozdania z wykonanych obowiązków</p>
+  </div>
+  <div class="flex flex-col">
+    <p class="m-0 font-bold"> Date - Number of hours - Place - Activity</p>
+    <p class="m-0"> Data - Liczba godzin - Miejsce - Czynność</p>
+  </div>
+</Layout>
+<script>
+  const HOLIDAYS_IN_POLAND = [
+  {month: 0, day: 1, name: 'New Year`s Day'},
+  {month: 0, day: 2, name: 'Epiphany day off (transferred from January 06)'},
+  {month: 3, day: 10, name: 'Easter Monday'},
+  {month: 4, day: 1, name: 'Labour Day'},
+  {month: 4, day: 3, name: 'Constitution Day'},
+  {month: 5, day: 8, name: 'Corpus Christi'},
+  {month: 7, day: 15, name: 'Assumption Day'},
+  {month: 10, day: 1, name: 'All Saints\' Day'},
+  {month: 10, day: 11, name: 'PL Independence Day'},
+  {month: 10, day: 13, name: 'PL Independence Day(moved)'},
+  {month: 11, day: 25, name: 'Christmas Day'},
+  {month: 11, day: 26, name: '2nd Day of Christmas'},
+];
+const getWorkingDayPeriodsInMonth = (date, dayOffs) => {
+  let month = date.getMonth();
+  let year = date.getFullYear();
+  let daysInMonth = new Date(year, month + 1, 0).getDate();
+  let periods = [];
+  let inteval;
+  for(let day = 1; day <= daysInMonth; day++) {
+      let dayOfWeek = new Date(year, month, day).getDay();
+      // Monday to Friday are working days + take into account custom day offs
+      if(dayOfWeek > 0 && dayOfWeek < 6 && !isDayInArray(day, month, dayOffs)) {
+          if (Array.isArray(inteval)) {
+            inteval.push(new Date(year, month, day));
+          } else {
+            inteval = [];
+            periods.push(inteval);
+            inteval.push(new Date(year, month, day));
+          }
+      } else {
+        inteval = undefined
+      }
+  }
+
+  return periods
+}
+
+const getLineItemForPeriod = (arr, location, activity) => {
+  const startDate = arr[0]
+  const endDate = arr[arr.length -1]
+  const getMonth = (d) => d.getMonth() + 1 
+  const from = `${startDate.getFullYear()}-${padZero(getMonth(startDate))}-${padZero(startDate.getDate())}`
+  const to = `${endDate.getFullYear()}-${padZero(getMonth(endDate))}-${padZero(endDate.getDate())}`
+  const hours = arr.length * 8
+  return `${from} - ${to} - ${hours} - ${location} - ${activity}`
+}
+
+const padZero = (s) => {
+  if (String(s).length < 2) {
+    return '0' + String(s);
+  }
+  return String(s)
+}
+
+const isDayInArray = (day, month, dayOffs) => {
+  return !!dayOffs.find(h => h.day === day && h.month === month)
+}
+
+const handleRequest = () => {
+  request.log.info(request.query);
+  const { year, month, city, address, postalCode, activity, dayOffs} = request.query
+  reply.header('Content-Type', 'application/pdf');
+  const date = new Date();
+  date.setFullYear(Number(year), Number(month), Number(1));
+  const dayOffsEnhanced = dayOffs !== '' ? dayOffs.split(',').map(day => ({day: Number(day), month: date.getMonth(), name: 'Personal day off'})) : [];
+  const doc = generatePdfStream(date, city, address, postalCode, activity, dayOffsEnhanced.concat(HOLIDAYS_IN_POLAND));
+  reply.send(doc);
+}
+</script>
+<style>
+  /* .m-0 {
+    margin: 0px;
+  } */
+  
+</style>

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Poland B2B statement generator">
   <div class="main">
     <h1>Poland B2B statement generator</h1>
     <div class="form_container">
@@ -63,17 +63,6 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </Layout>
 <script>
-  // const fn = (e) => {
-  //   const url = new URLSearchParams();
-  //   // url.append("year", year);
-  //   // url.append("month", month);
-  //   // url.append("city", city);
-  //   // url.append("address", address);
-  //   // url.append("postalCode", postalCode);
-  //   // url.append("activity", activity);
-  //   // url.append("dayOffs", dayOffs);
-  //   window.open(`./doc?${url.toString()}`);
-  // };
   const btn = document.getElementById("btn");
 
   btn?.addEventListener("click", function (e) {
@@ -86,6 +75,15 @@ import Layout from "../layouts/Layout.astro";
     const dayOffs = (document.getElementById("dayOffs")as HTMLInputElement)?.value;
 
     console.log({ year, month, city, address, postalCode, activity, dayOffs });
+    const url = new URLSearchParams();
+    url.append("year", year);
+    url.append("month", month);
+    url.append("city", city);
+    url.append("address", address);
+    url.append("postalCode", postalCode);
+    url.append("activity", activity);
+    url.append("dayOffs", dayOffs);
+    window.open(`./doc?${url.toString()}`);
   });
 </script>
 <style>
