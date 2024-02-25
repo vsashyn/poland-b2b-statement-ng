@@ -12,28 +12,14 @@ import Layout from "../layouts/Layout.astro";
     <p class="m-0">Data - Liczba godzin - Miejsce - Czynność</p>
   </div>
   <div id="table"></div>
-  <button id="print-btn" class="print:hidden">Print</button>
+  <button
+    id="print-btn"
+    class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white print:hidden"
+    >Print</button
+  >
 </Layout>
 <script>
-  const HOLIDAYS_IN_POLAND = [
-    { month: 0, day: 1, name: "New Year`s Day" },
-    {
-      month: 0,
-      day: 2,
-      name: "Epiphany day off (transferred from January 06)",
-    },
-    { month: 3, day: 10, name: "Easter Monday" },
-    { month: 4, day: 1, name: "Labour Day" },
-    { month: 4, day: 3, name: "Constitution Day" },
-    { month: 5, day: 8, name: "Corpus Christi" },
-    { month: 7, day: 15, name: "Assumption Day" },
-    { month: 10, day: 1, name: "All Saints' Day" },
-    { month: 10, day: 11, name: "PL Independence Day" },
-    { month: 10, day: 13, name: "PL Independence Day(moved)" },
-    { month: 11, day: 25, name: "Christmas Day" },
-    { month: 11, day: 26, name: "2nd Day of Christmas" },
-  ];
-  const getWorkingDayPeriodsInMonth = (date: Date, dayOffs: string) => {
+  const getWorkingDayPeriodsInMonth = (date: Date, dayOffs: DayOff[]) => {
     let month = date.getMonth();
     let year = date.getFullYear();
     let daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -62,7 +48,7 @@ import Layout from "../layouts/Layout.astro";
     return periods;
   };
 
-  const getLineItemForPeriod = (arr, location, activity) => {
+  const getLineItemForPeriod = (arr: Date[], location: string, activity: string) => {
     const startDate = arr[0];
     const endDate = arr[arr.length - 1];
     const getMonth = (d) => d.getMonth() + 1;
@@ -72,14 +58,14 @@ import Layout from "../layouts/Layout.astro";
     return `${from} - ${to} - ${hours} - ${location} - ${activity}`;
   };
 
-  const padZero = (s) => {
+  const padZero = (s: string | number) => {
     if (String(s).length < 2) {
       return "0" + String(s);
     }
     return String(s);
   };
 
-  const isDayInArray = (day, month, dayOffs) => {
+  const isDayInArray = (day: number, month: number, dayOffs: DayOff[]) => {
     return !!dayOffs.find((h) => h.day === day && h.month === month);
   };
   const handleQueryParamsAndFillTable = () => {
@@ -114,16 +100,17 @@ import Layout from "../layouts/Layout.astro";
     for (let i = 0; i < array.length; i++) {
       const line = document.createElement("p");
       line.textContent = array[i];
-      table.appendChild(line);
+      table?.appendChild(line);
     }
   };
+  type DayOff = { day: number; month: number; name: string }
   const generateTable = (
     date: Date,
     city: string,
     address: string,
     postalCode: string,
     activity: string,
-    dayOffsEnhanced: string
+    dayOffsEnhanced: DayOff[]
   ) => {
     let location = "";
     if (city !== "") {
@@ -139,6 +126,24 @@ import Layout from "../layouts/Layout.astro";
       return getLineItemForPeriod(i, location, activity);
     });
   };
+  const HOLIDAYS_IN_POLAND = [
+    { month: 0, day: 1, name: "New Year`s Day" },
+    {
+      month: 0,
+      day: 2,
+      name: "Epiphany day off (transferred from January 06)",
+    },
+    { month: 3, day: 10, name: "Easter Monday" },
+    { month: 4, day: 1, name: "Labour Day" },
+    { month: 4, day: 3, name: "Constitution Day" },
+    { month: 5, day: 8, name: "Corpus Christi" },
+    { month: 7, day: 15, name: "Assumption Day" },
+    { month: 10, day: 1, name: "All Saints' Day" },
+    { month: 10, day: 11, name: "PL Independence Day" },
+    { month: 10, day: 13, name: "PL Independence Day(moved)" },
+    { month: 11, day: 25, name: "Christmas Day" },
+    { month: 11, day: 26, name: "2nd Day of Christmas" },
+  ];
   /**
    * Event listeners
    */
