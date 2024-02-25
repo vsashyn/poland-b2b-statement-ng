@@ -59,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
   ) => {
     const startDate = arr[0];
     const endDate = arr[arr.length - 1];
-    const getMonth = (d) => d.getMonth() + 1;
+    const getMonth = (d: Date) => d.getMonth() + 1;
     const from = `${startDate.getFullYear()}-${padZero(getMonth(startDate))}-${padZero(startDate.getDate())}`;
     const to = `${endDate.getFullYear()}-${padZero(getMonth(endDate))}-${padZero(endDate.getDate())}`;
     const hours = arr.length * 8;
