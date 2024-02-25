@@ -3,20 +3,23 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Poland B2B statement generator">
-  <div class="main">
-    <h1>Poland B2B statement generator</h1>
-    <div class="form_container">
-      <p>
-        <label for="year">Year</label>
-        <select id="year">
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Poland B2B statement generator</h2>
+    </div>
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      
+        <label for="year" class="block text-sm font-medium leading-6 text-gray-900">Year</label>
+        <select id="year" required class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right" style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`>
           <option value="">Select Year</option>
           <option value="2023">2023</option>
           <option value="2024">2024</option>
         </select>
-      </p>
+      
       <p>
-        <label for="month">Month</label>
-        <select id="month" class="month_select">
+        <label for="month" class="block text-sm font-medium leading-6 text-gray-900">Month</label>
+        <select id="month" required class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right" style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`>
           <option value="">Select Month</option>
           <option value="0">January</option>
           <option value="1">February</option>
@@ -33,33 +36,37 @@ import Layout from "../layouts/Layout.astro";
         </select>
       </p>
       <p>
-        <label for="city">City</label>
-        <input id="city" type="text" />
+        <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
+        <input id="city" type="text" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
       </p>
       <p>
-        <label for="address">Address</label>
-        <input id="address" type="text" />
+        <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
+        <input id="address" type="text" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
       </p>
       <p>
-        <label for="postalCode">Postal code</label>
-        <input id="postalCode" type="text" />
+        <label for="postalCode" class="block text-sm font-medium leading-6 text-gray-900">Postal code</label>
+        <input id="postalCode" type="text" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
       </p>
       <p>
-        <label for="activity">Activity</label>
-        <input id="activity" type="text" />
+        <label for="activity" class="block text-sm font-medium leading-6 text-gray-900">Activity</label>
+        <input id="activity" type="text" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
       </p>
       <p>
-        <label for="dayOffs">
-          Day offs(optionally). Should be comma separated days of month
+        <label for="dayOffs" class="block text-sm font-medium leading-6 text-gray-900">
+          Day offs (comma separated days of month)
         </label>
-        <input id="dayOffs" type="text" placeholder="1,5,21" />
+        <input id="dayOffs" type="text" placeholder="1,5,21" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
       </p>
+      <div class="mt-3">
+        <button id="btn" class="w-full bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"> Generate PDF</button>
+      </div>
+      <footer class="mt-10">
+        <p>
+          Found a bug? Reach out &nbsp;
+          <a href="mailto:sashyn.v@gmail.com" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">sashyn.v@gmail.com</a>
+        </p>
+      </footer>
     </div>
-    <button id="btn" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"> Generate PDF</button>
-    <footer>
-      Please send bugs and feature requests to &nbsp;
-      <a href="mailto:sashyn.v@gmail.com">sashyn.v@gmail.com</a>
-    </footer>
   </div>
 </Layout>
 <script>
@@ -86,28 +93,3 @@ import Layout from "../layouts/Layout.astro";
     window.open(`./doc?${url.toString()}`);
   });
 </script>
-<style>
-  h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  select, input {
-    box-sizing: content-box;
-    width: 200px;
-    padding: 4px;
-    border: 2px solid lightblue;
-  }
-  label {
-    display: block;
-    padding-bottom: 2px;
-  }
-  footer {
-    position: absolute;
-    bottom: 0;
-    padding: 4px;
-  }
-  .main {
-    height: 100vh;
-  }
-</style>
