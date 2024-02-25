@@ -80,8 +80,7 @@ import Layout from "../layouts/Layout.astro";
     const postalCode = (document.getElementById("postalCode")as HTMLInputElement)?.value;
     const activity = (document.getElementById("activity")as HTMLInputElement)?.value;
     const dayOffs = (document.getElementById("dayOffs")as HTMLInputElement)?.value;
-
-    console.log({ year, month, city, address, postalCode, activity, dayOffs });
+    
     const url = new URLSearchParams();
     url.append("year", year);
     url.append("month", month);

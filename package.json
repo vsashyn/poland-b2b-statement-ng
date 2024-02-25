@@ -2,6 +2,10 @@
   "name": "poland-b2b-statement-ng",
   "type": "module",
   "version": "0.0.1",
+  "author": {
+    "email": "sashyn.v@gmail.com",
+    "name": "Vitalii Sashyn"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
