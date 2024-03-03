@@ -5,81 +5,182 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Poland B2B statement generator">
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Poland B2B statement generator</h2>
+      <img
+        class="mx-auto h-10 w-auto"
+        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+        alt="Your Company"
+      />
+      <h2
+        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+      >
+        Poland B2B statement generator
+      </h2>
     </div>
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      
-        <label for="year" class="block text-sm font-medium leading-6 text-gray-900">Year</label>
-        <select id="year" required class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right" style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`>
+    <form id="form">
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <label
+          for="year"
+          class="block text-sm font-medium leading-6 text-gray-900">Year</label
+        >
+        <select
+          id="year"
+          required
+          class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right"
+          style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`
+        >
           <option value="">Select Year</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
+          <option value="2024" selected>2024</option>
+          <option value="2025">2025</option>
         </select>
-      
-      <p>
-        <label for="month" class="block text-sm font-medium leading-6 text-gray-900">Month</label>
-        <select id="month" required class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right" style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`>
-          <option value="">Select Month</option>
-          <option value="0">January</option>
-          <option value="1">February</option>
-          <option value="2">March</option>
-          <option value="3">April</option>
-          <option value="4">May</option>
-          <option value="5">June</option>
-          <option value="6">July</option>
-          <option value="7">August</option>
-          <option value="8">September</option>
-          <option value="9">October</option>
-          <option value="10">November</option>
-          <option value="11">December</option>
-        </select>
-      </p>
-      <p>
-        <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
-        <input id="city" type="text" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-      </p>
-      <p>
-        <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
-        <input id="address" type="text" required class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-      </p>
-      <p>
-        <label for="postalCode" class="block text-sm font-medium leading-6 text-gray-900">Postal code</label>
-        <input id="postalCode" type="text" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-      </p>
-      <p>
-        <label for="activity" class="block text-sm font-medium leading-6 text-gray-900">Activity</label>
-        <input id="activity" type="text" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-      </p>
-      <p>
-        <label for="dayOffs" class="block text-sm font-medium leading-6 text-gray-900">
-          Day offs (comma separated days of month)
-        </label>
-        <input id="dayOffs" type="text" placeholder="1,5,21" class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-      </p>
-      <div class="mt-3">
-        <button id="btn" class="w-full bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"> Generate PDF</button>
-      </div>
-      <footer class="mt-10">
+
         <p>
-          Found a bug? Reach out &nbsp;
-          <a href="mailto:sashyn.v@gmail.com" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">sashyn.v@gmail.com</a>
+          <label
+            for="month"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Month</label
+          >
+          <select
+            id="month"
+            required
+            class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right"
+            style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`
+          >
+            <option value="">Select Month</option>
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+          </select>
         </p>
-      </footer>
-    </div>
+        <p>
+          <label
+            for="city"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >City</label
+          >
+          <input
+            id="city"
+            type="text"
+            required
+            placeholder="Krakow"
+            value="Krakow"
+            class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </p>
+        <p>
+          <label
+            for="address"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Address</label
+          >
+          <input
+            id="address"
+            type="text"
+            class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </p>
+        <p>
+          <label
+            for="postalCode"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Postal code</label
+          >
+          <input
+            id="postalCode"
+            type="text"
+            class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </p>
+        <p>
+          <label
+            for="activity"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Activity</label
+          >
+          <input
+            id="activity"
+            type="text"
+            placeholder="Software development"
+            class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </p>
+        <p>
+          <label
+            for="dayOffs"
+            class="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Day offs (comma separated days of month)
+          </label>
+          <input
+            id="dayOffs"
+            type="text"
+            placeholder="1,5,21"
+            class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </p>
+        <div class="mt-3">
+          <button
+            id="btn"
+            type="submit"
+            class="w-full bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"
+          >
+            Generate PDF</button
+          >
+        </div>
+        <footer class="mt-10">
+          <p>
+            Found a bug? Reach out &nbsp;
+            <a
+              href="mailto:sashyn.v@gmail.com"
+              class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              >sashyn.v@gmail.com</a
+            >
+          </p>
+        </footer>
+      </div>
+    </form>
   </div>
 </Layout>
 <script>
-  const btn = document.getElementById("btn");
-  btn?.addEventListener("click", function () {
+  /**
+   * Initialization
+   */
+  (function () {
+    const date = new Date();
+
+    const year = document.getElementById("year") as HTMLSelectElement;
+    year.value = date.getFullYear().toString();
+
+    const monthEl = document.getElementById("month") as HTMLSelectElement;
+    monthEl.value = new Date().getMonth().toString();
+  })();
+  /**
+   * Click handler
+   */
+  const btn = document.getElementById("form");
+  btn?.addEventListener("submit", function () {
     const year = (document.getElementById("year") as HTMLSelectElement)?.value;
-    const month = (document.getElementById("month")as HTMLSelectElement)?.value;
-    const city = (document.getElementById("city")as HTMLInputElement)?.value;
-    const address = (document.getElementById("address")as HTMLInputElement)?.value;
-    const postalCode = (document.getElementById("postalCode")as HTMLInputElement)?.value;
-    const activity = (document.getElementById("activity")as HTMLInputElement)?.value;
-    const dayOffs = (document.getElementById("dayOffs")as HTMLInputElement)?.value;
-    
+    const month = (document.getElementById("month") as HTMLSelectElement)
+      ?.value;
+    const city = (document.getElementById("city") as HTMLInputElement)?.value;
+    const address = (document.getElementById("address") as HTMLInputElement)
+      ?.value;
+    const postalCode = (
+      document.getElementById("postalCode") as HTMLInputElement
+    )?.value;
+    const activity = (document.getElementById("activity") as HTMLInputElement)
+      ?.value;
+    const dayOffs = (document.getElementById("dayOffs") as HTMLInputElement)
+      ?.value;
+
     const url = new URLSearchParams();
     url.append("year", year);
     url.append("month", month);
