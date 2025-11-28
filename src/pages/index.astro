@@ -4,11 +4,15 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Poland B2B statement generator">
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm flex flex-row items-center">
+      <img src="/christmas-tree.svg" alt="Christmas tree">
       <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+        class="relative text-center text-xl font-bold leading-9 tracking-tight text-gray-900"
       >
         Poland B2B statement generator
+        <div class="absolute right-0 top-0">
+          <img src="/christmas-garland.svg" alt="Christmas garland">
+        </div>
       </h2>
     </div>
     <form id="form">
@@ -130,7 +134,7 @@ import Layout from "../layouts/Layout.astro";
             Generate PDF</button
           >
         </div>
-        <footer class="mt-10">
+        <footer class="mt-10"> 
           <p>
             Found a bug? Reach out &nbsp;
             <a
