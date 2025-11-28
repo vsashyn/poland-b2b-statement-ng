@@ -1,6 +1,6 @@
-<svg width="250" height="50" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+<svg width="250" height="80" viewBox="0 0 250 80" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="ballShadow" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="ballShadow2" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
       <feOffset dx="0.5" dy="1" result="offsetblur"/>
       <feComponentTransfer>
@@ -12,39 +12,54 @@
       </feMerge>
     </filter>
     
-    <!-- Radial gradients for subtle 3D effect -->
-    <radialGradient id="redGradient" cx="35%" cy="35%">
-      <stop offset="0%" stop-color="#F87171" stop-opacity="0.7"/>
+    <!-- Radial gradients for 3D volume effect -->
+    <radialGradient id="redGradient2" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#FCA5A5" stop-opacity="0.8"/>
       <stop offset="50%" stop-color="#EF4444" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#EF4444" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#DC2626" stop-opacity="1"/>
     </radialGradient>
     
-    <radialGradient id="greenGradient" cx="35%" cy="35%">
-      <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.7"/>
+    <radialGradient id="greenGradient2" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#86EFAC" stop-opacity="0.8"/>
       <stop offset="50%" stop-color="#22C55E" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#22C55E" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#16A34A" stop-opacity="1"/>
     </radialGradient>
     
-    <radialGradient id="orangeGradient" cx="35%" cy="35%">
-      <stop offset="0%" stop-color="#FB923C" stop-opacity="0.7"/>
-      <stop offset="50%" stop-color="#F97316" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#F97316" stop-opacity="1"/>
+    <radialGradient id="blueGradient2" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#93C5FD" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#3B82F6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="1"/>
+    </radialGradient>
+    
+    <radialGradient id="goldGradient2" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#EAB308" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#CA8A04" stop-opacity="1"/>
+    </radialGradient>
+    
+    <radialGradient id="purpleGradient2" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#8B5CF6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="1"/>
     </radialGradient>
   </defs>
   
-  <!-- Garland string - parabolic shape -->
-  <path d="M 10 30 Q 150 90, 230 20" 
+  <!-- Garland string - parabolic path from top-left to top-right (3x longer) -->
+  <path d="M 0 50 Q 125 90, 250 0" 
         stroke="#8B7355" 
-        stroke-width="2" 
+        stroke-width="1.5" 
         fill="none" 
         stroke-linecap="round"/>
   
-  <!-- Decorative balls with warm colors, gradients, and shadows -->
-  <circle cx="30" cy="37" r="6" fill="url(#redGradient)" filter="url(#ballShadow)"/>
-  <circle cx="60" cy="45" r="6" fill="url(#greenGradient)" filter="url(#ballShadow)"/>
-  <circle cx="90" cy="52" r="6" fill="url(#orangeGradient)" filter="url(#ballShadow)"/>
-  <circle cx="120" cy="53" r="6" fill="url(#orangeGradient)" filter="url(#ballShadow)"/>
-  <circle cx="150" cy="52" r="6" fill="url(#redGradient)" filter="url(#ballShadow)"/>
-  <circle cx="180" cy="50" r="6" fill="url(#greenGradient)" filter="url(#ballShadow)"/>
+  <!-- Decorative balls with volume effect, positioned on the string with 1-2px offset -->
+  <circle cx="25.8" cy="55.9" r="5" fill="url(#redGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="51.3" cy="59.9" r="5" fill="url(#blueGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="76.2" cy="61.3" r="5" fill="url(#greenGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="100.7" cy="60.1" r="5" fill="url(#goldGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="125.4" cy="56.4" r="5" fill="url(#purpleGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="150.6" cy="50.0" r="5" fill="url(#redGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="175.3" cy="41.2" r="5" fill="url(#blueGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="200.8" cy="29.3" r="5" fill="url(#greenGradient2)" filter="url(#ballShadow2)"/>
+  <circle cx="225.2" cy="15.8" r="5" fill="url(#goldGradient2)" filter="url(#ballShadow2)"/>
 </svg>
 
