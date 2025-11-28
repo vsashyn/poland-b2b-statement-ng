@@ -1,0 +1,50 @@
+<svg width="250" height="50" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="ballShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="0.5" dy="1" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Radial gradients for subtle 3D effect -->
+    <radialGradient id="redGradient" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#F87171" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#EF4444" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="1"/>
+    </radialGradient>
+    
+    <radialGradient id="greenGradient" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#22C55E" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#22C55E" stop-opacity="1"/>
+    </radialGradient>
+    
+    <radialGradient id="orangeGradient" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#FB923C" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#F97316" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#F97316" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Garland string - parabolic shape -->
+  <path d="M 10 30 Q 150 90, 230 20" 
+        stroke="#8B7355" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round"/>
+  
+  <!-- Decorative balls with warm colors, gradients, and shadows -->
+  <circle cx="30" cy="37" r="6" fill="url(#redGradient)" filter="url(#ballShadow)"/>
+  <circle cx="60" cy="45" r="6" fill="url(#greenGradient)" filter="url(#ballShadow)"/>
+  <circle cx="90" cy="52" r="6" fill="url(#orangeGradient)" filter="url(#ballShadow)"/>
+  <circle cx="120" cy="53" r="6" fill="url(#orangeGradient)" filter="url(#ballShadow)"/>
+  <circle cx="150" cy="52" r="6" fill="url(#redGradient)" filter="url(#ballShadow)"/>
+  <circle cx="180" cy="50" r="6" fill="url(#greenGradient)" filter="url(#ballShadow)"/>
+</svg>
+
