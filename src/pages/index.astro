@@ -25,8 +25,7 @@ import Layout from "../layouts/Layout.astro";
           id="year"
           required
           class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right"
-          style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`
-        >
+          style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`>
           <option value="">Select Year</option>
           <option value="2024" selected>2024</option>
           <option value="2025">2025</option>
@@ -42,8 +41,7 @@ import Layout from "../layouts/Layout.astro";
             id="month"
             required
             class="block w-full rounded-md border-0 py-1.5 pl-3 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 appearance-none bg-transparent bg-auto bg-no-repeat bg-right"
-            style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`
-          >
+            style=`background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='0.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");`>
             <option value="">Select Month</option>
             <option value="0">January</option>
             <option value="1">February</option>
@@ -114,8 +112,7 @@ import Layout from "../layouts/Layout.astro";
         <p>
           <label
             for="dayOffs"
-            class="block text-sm font-medium leading-6 text-gray-900"
-          >
+            class="block text-sm font-medium leading-6 text-gray-900">
             Day offs (comma separated days of month)
           </label>
           <input
@@ -129,8 +126,7 @@ import Layout from "../layouts/Layout.astro";
           <button
             id="btn"
             type="submit"
-            class="w-full bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"
-          >
+            class="w-full bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
             Generate PDF</button
           >
         </div>
@@ -160,7 +156,26 @@ import Layout from "../layouts/Layout.astro";
 
     const monthEl = document.getElementById("month") as HTMLSelectElement;
     monthEl.value = new Date().getMonth().toString();
+
+    const cityEl = document.getElementById("city") as HTMLSelectElement;
+    cityEl.value = getValFromLocalStorage("city");
+    const address = document.getElementById("address") as HTMLSelectElement;
+    address.value = getValFromLocalStorage("address");
+    const postalCodeEl = document.getElementById(
+      "postalCode"
+    ) as HTMLSelectElement;
+    postalCodeEl.value = getValFromLocalStorage("postalCode");
+    const activityEl = document.getElementById("activity") as HTMLSelectElement;
+    activityEl.value = getValFromLocalStorage("activity");
   })();
+
+  /**
+   * Returns value from localStorage
+   * @param key form key
+   */
+  function getValFromLocalStorage(key: string) {
+    return localStorage.getItem(key) || "";
+  }
   /**
    * Click handler
    */
@@ -179,6 +194,12 @@ import Layout from "../layouts/Layout.astro";
       ?.value;
     const dayOffs = (document.getElementById("dayOffs") as HTMLInputElement)
       ?.value;
+
+    // Save form values to localStorage
+    localStorage.setItem("city", city || "");
+    localStorage.setItem("address", address || "");
+    localStorage.setItem("postalCode", postalCode || "");
+    localStorage.setItem("activity", activity || "");
 
     const url = new URLSearchParams();
     url.append("year", year);
